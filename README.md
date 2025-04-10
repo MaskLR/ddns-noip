@@ -13,7 +13,7 @@
 # No-IP 服务商配置
 USER="your_username"     # No-IP 账号
 PASS="your_password"     # No-IP 密码
-DOMAIN="your_domain"     # No-IP 域名
+HOSTNAME="your_HOSTNAME"     # No-IP 域名
 ```
 ### 2.压缩成zip格式
 
