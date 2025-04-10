@@ -3,7 +3,8 @@
 ## 动态更新No-IP服务商的IPv6地址
 
 ### 1. 添加账号、密码、域名到 `system>config.sh` 文件
-先将压缩包解压找到system文件夹下config.sh文件打开
+先将压缩包解压，找到system文件夹打开，找到config.sh文件打开
+
 将的账号、密码和域名信息添加到 `config.sh` 文件内，确保文件内容如下所示：
 
 ```bash
