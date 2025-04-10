@@ -2,7 +2,7 @@
 
 ## 动态更新No-IP服务商的IPv6地址
 
-### 日志文件目录/data/local/tmp/DDNS-no-ip
+#### 日志文件目录/data/local/tmp/DDNS-no-ip
 
 ### 1. 添加账号、密码、域名到 `system>config.sh` 文件
 先将压缩包解压，找到system文件夹打开，找到config.sh文件打开
@@ -30,4 +30,4 @@ ddns.zip
    ├── system.prop
    └── sepolicy.rule
 ```
-### magisk刷入
+### 3.Magisk刷入
