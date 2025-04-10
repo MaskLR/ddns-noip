@@ -1,0 +1,7 @@
+id=DDNS-NO-IP
+name=No-ip DDNS
+version=1.1
+versionCode=1
+author=Mask LinRan
+description=用于no-ip DDNS 更新
+minMagisk=1600

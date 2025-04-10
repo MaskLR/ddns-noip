@@ -1,0 +1,5 @@
+# 模块基本配置
+SKIPMOUNT=false
+PROPFILE=true
+POSTFSDATA=true
+LATESTARTSERVICE=true
