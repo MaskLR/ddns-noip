@@ -1,0 +1,2 @@
+# 设置系统属性（可用于启用调试、关闭验证等）
+persist.mymodule.enabled=1

@@ -1,7 +1,10 @@
 # /system/config.sh
 
-USER=""              # 设置 no-ip 的用户名
+# 配置文件，用于存储 No-IP 的账户信息
 
-PASS=""              # 设置 no-ip 密码
+# 设置用户名和密码
+USER=""
+PASS=""
 
-HOSTNAME=""          # 设置 No-IP 主机名  比如：HOSTNAME="mask.ddns.net"
+# 设置 No-IP 主机名
+HOSTNAME="mask.ddns.net"
