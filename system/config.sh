@@ -7,4 +7,4 @@ USER=""
 PASS=""
 
 # 设置 No-IP 主机名
-HOSTNAME="mask.ddns.net"
+HOSTNAME=""
