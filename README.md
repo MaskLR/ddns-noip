@@ -23,7 +23,7 @@ ddns.zip
    │     ├──bin
    │     │   └── my_script.sh
    │     ├── config.sh
-   │     └── DDNSv6.sh
+   │     └── ipv6_updater.sh
    ├── post-fs-data.sh
    ├── service.sh
    ├── uninstall.sh
