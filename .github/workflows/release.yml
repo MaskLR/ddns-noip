@@ -1,0 +1,48 @@
+name: Go Build and Release
+
+on:
+  push:
+    branches:
+      - main  # 只有推送到 main 分支时才会触发工作流
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Checkout 代码
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    # 设置 Go 环境
+    - name: Set up Go
+      uses: actions/setup-go@v3
+      with:
+        go-version: '2.24'  # 可以修改为你使用的 Go 版本
+
+    # 获取依赖
+    - name: Install dependencies
+      run: |
+        go mod tidy
+        go mod download
+
+    # 编译 Go 代码
+    - name: Build Go binary
+      run: |
+        go build -o bin/ ./bin/ddns-client
+
+    # 删除 Go 代码文件（保留二进制文件）
+    - name: Clean up Go source files
+      run: |
+        rm -rf /bin/ddns-client
+
+    # 压缩 bin 文件夹为 ZIP
+    - name: Create release zip
+      run: |
+        zip -r ddns-client.zip .
+
+    # 上传到 GitHub Releases
+    - name: Upload release
+      uses: ncipollo/release-action@v1
+      with:
+        files: ddns-client.zip

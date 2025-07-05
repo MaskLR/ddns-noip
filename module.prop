@@ -1,7 +1,7 @@
-id=DDNS-NO-IP
-name=No-ip DDNS
-version=1.1
+# module.prop
+id=mask.ddns.net
+name=MaskLR DDNS (Go)
+version=1.0.1
 versionCode=1
-author=Mask LinRan
-description=用于no-ip DDNS 更新
-minMagisk=1600
+author=Mask LR
+description=基于 Go 的轻量 DDNS 客户端，支持 No-IP，适配 Magisk 模块规范。
