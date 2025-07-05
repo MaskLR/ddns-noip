@@ -30,7 +30,8 @@ jobs:
     # 编译 ARM 32 位 Go 二进制文件
     - name: Build ARM 32-bit Go binary
       run: |
-        GOARCH=arm GOOS=linux go build -o bin/ddns-client ./bin/ddns-client
+       pwd
+       GOARCH=arm GOOS=linux go build -o ./bin/ddns-client/ ./bin/ddns-client
 
     # 删除 Go 代码文件（保留二进制文件）
     - name: Clean up Go source files
