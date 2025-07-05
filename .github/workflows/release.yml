@@ -32,7 +32,7 @@ jobs:
     - name: Build ARM 32-bit Go binary
       run: |
        cd bin/ddns-client
-       GOARCH=arm GOOS=linux go build -o ../bin
+       GOARCH=arm GOOS=linux go build -o ../ddns-client
        cd ..
 
     # 删除 Go 代码文件（保留二进制文件）
