@@ -19,11 +19,17 @@ HOSTNAME="your_HOSTNAME"     # No-IP 域名
 
 ```bash
 ddns.zip
-   ├── system
-   │     ├──bin
-   │     │   └── my_script.sh
-   │     ├── config.sh
-   │     └── ipv6_updater.sh
+   ├── bin
+   │     ├──ddns-client
+   │     │   ├── config
+   │     │   │    ├──config.go
+   │     │   ├── dns
+   │     │   ├── ip
+   │     │   ├── web
+   │     │   ├── go.mod
+   │     │   └── main.go
+   │     ├── masklr-ddns
+   │     └── 
    ├── post-fs-data.sh
    ├── service.sh
    ├── uninstall.sh
