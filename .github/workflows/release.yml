@@ -39,7 +39,7 @@ jobs:
     - name: Clean up Go source files
       run: |
         rm -rf bin/ddns-client
-        pwd
+        
 
 
     # 将文件保存到工作流的 artifacts 目录
@@ -47,4 +47,4 @@ jobs:
       uses: actions/upload-artifact@v4  # 使用 v4 版本
       with:
         name: ddns-client-artifacts
-        path: ddns-client.zip
+        path: ./
