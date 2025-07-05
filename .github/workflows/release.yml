@@ -31,9 +31,7 @@ jobs:
     # 编译 ARM 32 位 Go 二进制文件
     - name: Build ARM 32-bit Go binary
       run: |
-       pwd
        cd bin/ddns-client
-       pwd
        GOARCH=arm GOOS=linux go build -o ../bin/ddns-client
        cd ..
 
@@ -47,8 +45,8 @@ jobs:
       run: |
         zip -r ddns-client.zip bin/
 
-    # 上传到 GitHub Releases
-    - name: Upload release
-      uses: ncipollo/release-action@v1
+    - name: Save artifacts
+      uses: actions/upload-artifact@v3
       with:
-        files: ddns-client.zip
+        name: ddns-client-artifacts
+        path: ddns-client.zip
