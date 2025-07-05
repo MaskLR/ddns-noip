@@ -23,8 +23,8 @@ jobs:
     # 获取依赖
     - name: Install dependencies
       run: |
-        go mod tidy
-        go mod download
+        go mod tidy -modfile=bin/ddns-client/go.mod
+        go mod download -modfile=bin/ddns-client/go.mod
 
     # 编译 ARM 32 位 Go 二进制文件
     - name: Build ARM 32-bit Go binary
