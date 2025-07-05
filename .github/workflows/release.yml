@@ -45,8 +45,9 @@ jobs:
       run: |
         zip -r ddns-client.zip bin/
 
+    # 将文件保存到工作流的 artifacts 目录
     - name: Save artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v2  # 使用 v2
       with:
         name: ddns-client-artifacts
         path: ddns-client.zip
