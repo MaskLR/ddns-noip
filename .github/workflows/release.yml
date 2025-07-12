@@ -47,7 +47,7 @@ jobs:
 
     # 创建 GitHub 发布版本
     - name: Create GitHub Release
-      uses: softprops/action-gh-release@v1  # 使用 action-gh-release 插件
+      uses: softprops/action-gh-release@v2  # 使用 action-gh-release 插件
       with:
         files: |
           masklr-ddns-arm32
