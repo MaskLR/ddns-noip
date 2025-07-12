@@ -7,8 +7,6 @@ import (
 	"log"
 	"net/http"
 	"os"
-
-	//"path/filepath"
 	"sync"
 
 	"masklr-ddns/config"

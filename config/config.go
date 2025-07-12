@@ -20,10 +20,10 @@ func Ensure(path string) (*Config, error) {
 	if _, err := os.Stat(path); os.IsNotExist(err) {
 		// 如果配置文件不存在，创建一个默认配置
 		def := Config{
-			Username: "uname",        // 默认用户名
-			Password: "password",     // 默认密码
-			Hostname: "you.ddns.net", // 默认主机名
-			Interval: 999,            // 默认更新间隔：300秒
+			Username: "username",        // 默认用户名
+			Password: "password",        // 默认密码
+			Hostname: "you.example.com", // 默认主机名
+			Interval: 999,               // 默认更新间隔：300秒
 		}
 		// 将默认配置转换为 JSON 格式
 		data, _ := json.MarshalIndent(def, "", "  ")
