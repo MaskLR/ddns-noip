@@ -1,0 +1,56 @@
+name: Go Build and Release
+
+on:
+  push:
+    tags:
+      - 'v*'  # 仅当推送标签时触发（例如：v1.0.0）
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Checkout 代码
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    # 设置 Go 环境
+    - name: Set up Go
+      uses: actions/setup-go@v3
+      with:
+        go-version: '1.24.4'  # 设置 Go 版本
+
+    # 获取并安装依赖
+    - name: Install dependencies
+      run: |
+        go mod tidy  # 清理 Go 模块
+        go mod download  # 下载依赖
+
+    # 编译 ARM 32 位 Go 二进制文件
+    - name: Build ARM 32-bit Go binary
+      run: |
+        GOARCH=arm GOOS=linux go build -o masklr-ddns-arm32
+
+    # 编译 ARM 64 位 Go 二进制文件
+    - name: Build ARM 64-bit Go binary
+      run: |
+        GOARCH=arm64 GOOS=linux go build -o masklr-ddns-arm64
+
+    # 将构建的二进制文件保存到 artifacts 目录
+    - name: Save artifacts
+      uses: actions/upload-artifact@v4  # 使用 v4 版本的上传插件
+      with:
+        name: ddns-noip
+        path: |
+          masklr-ddns-arm32
+          masklr-ddns-arm64
+
+    # 创建 GitHub 发布版本
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v1  # 使用 action-gh-release 插件
+      with:
+        files: |
+          masklr-ddns-arm32
+          masklr-ddns-arm64
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # 使用 GitHub token 提供权限

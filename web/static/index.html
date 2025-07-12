@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>DDNS 配置面板</title>
+</head>
+
+<body>
+    <h1>DDNS 配置</h1>
+    <form id="form">
+        <label>用户名: <input name="username" /></label><br><br>
+        <label>密码: <input name="password" type="password" /></label><br><br>
+        <label>域名: <input name="hostname" /></label><br><br>
+        <label>更新间隔（秒）: <input name="interval" type="number" /></label><br><br>
+        <button type="submit">保存配置</button>
+    </form>
+
+    <div id="status" style="margin-top: 1em; color: green;"></div>
+
+    <script>
+        // 页面加载时获取 config.json 并填充到表单
+        fetch('/api/config')
+            .then(res => {
+                if (!res.ok) throw new Error("配置读取失败")
+                return res.json()
+            })
+            .then(cfg => {
+                document.querySelector('[name=username]').value = cfg.username || ''
+                document.querySelector('[name=password]').value = cfg.password || ''
+                document.querySelector('[name=hostname]').value = cfg.hostname || ''
+                document.querySelector('[name=interval]').value = cfg.interval || ''
+            })
+            .catch(err => {
+                document.getElementById('status').textContent = '读取配置失败: ' + err.message
+                document.getElementById('status').style.color = 'red'
+            })
+
+        // 表单提交时 POST 到后端
+        document.getElementById('form').onsubmit = (e) => {
+            e.preventDefault()
+            const data = Object.fromEntries(new FormData(e.target))
+            data.interval = parseInt(data.interval)
+
+            fetch('/api/config', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            }).then(res => {
+                if (!res.ok) throw new Error("保存失败")
+                alert('✅ 配置保存成功')
+            })
+                .catch(err => {
+                    document.getElementById('status').textContent = '❌ 保存失败: ' + err.message
+                    document.getElementById('status').style.color = 'red'
+                })
+        }
+    </script>
+</body>
+
+</html>
