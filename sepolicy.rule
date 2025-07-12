@@ -1,2 +1,0 @@
-# 自定义 SELinux 权限（根据实际需要添加）
-allow mydomain shell_exec:file { read open execute };

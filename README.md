@@ -1,33 +1,14 @@
-# ddns-noip
+# ddns-noip （仅支持Termux，其他操作系统请自行适配）
 
-## 动态更新No-IP服务商的IPv6地址
+## 动态更新 No-IP 服务商的 IPv6 地址
 
-#### 日志文件目录/data/local/tmp/DDNS-no-ip
+此脚本用于在 **Termux** 中动态更新 No-IP 的 IPv6 地址。其他操作系统用户请自行适配。
 
-### 1. 添加账号、密码、域名到 `system>config.sh` 文件
-先将压缩包解压，找到system文件夹打开，找到config.sh文件打开
+### 1：开发者适配
+如需开发者适配其他操作系统，请在社区中添加讨论，或根据实际需求修改脚本。
 
-将的账号、密码和域名信息添加到 `config.sh` 文件内，确保文件内容如下所示：
+### 2：修改账号、密码和域名
+你可以通过浏览器访问设备的 IP 地址并加上端口 `6199` 来修改账号、密码和域名。例如：192.168.1.1:6199
 
-```bash
-# No-IP 服务商配置
-USER="your_username"     # No-IP 账号
-PASS="your_password"     # No-IP 密码
-HOSTNAME="your_HOSTNAME"     # No-IP 域名
-```
-### 2.压缩成zip格式
-
-```bash
-ddns.zip
-   ├── system
-   │     ├──bin
-   │     │   └── my_script.sh
-   │     ├── config.sh
-   │     └── ipv6_updater.sh
-   ├── post-fs-data.sh
-   ├── service.sh
-   ├── uninstall.sh
-   ├── system.prop
-   └── sepolicy.rule
-```
-### 3.Magisk刷入
+### 3：Termux 安装
+请将脚本放置在 Termux 的 `$PREFIX/usr/bin` 目录下，以便系统能正确执行。
